@@ -2,7 +2,7 @@
 This demo is an example of video processing to create mp4, m3u8, mpd files for streaming.
 
 ## Structure
---video-processing
+--video-processing  
 ‌‌‍‍   |\_\_uploads/  
 ‌‌‍‍   |\_\_video/  
 ‌‌‍‍   |\_\_server.js  
