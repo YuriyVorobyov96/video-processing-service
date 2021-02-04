@@ -19,7 +19,7 @@ const processing = async(inputPath, fileName) => {
       if (err || !metadata) {
         console.error(err);
 
-        reject(err || 'No metadata');
+        reject(new Error(err || 'No metadata'));
       } else if (metadata.streams) {
         resolve({
           video: metadata.streams.find(stream => stream.width && stream.height && stream.codec_type === 'video'),

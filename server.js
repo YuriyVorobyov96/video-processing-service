@@ -11,7 +11,7 @@ const { StaticPool } = require('node-worker-threads-pool');
 const fsAsync = fs.promises;
 
 const PORT = 1234;
-const NUM_CPUS = 5; // We can't use os.countCpu inside docker container
+const NUM_CPUS = 5; // We can't use os.cpus.length inside docker container
 
 app.use(express.static(path.join(__dirname, 'video')));
 app.use(bodyParser.json());
@@ -31,6 +31,7 @@ app.post('/upload', async(req, res) => {
   await fsAsync.mkdir(path.resolve('uploads', videoId));
   await fsAsync.writeFile(videoFilePath, data);
 
+  // Example of pool
   const pool = new StaticPool({
     size: NUM_CPUS - 1,
     task: './src/worker.js',

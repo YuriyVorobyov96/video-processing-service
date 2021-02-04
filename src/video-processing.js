@@ -49,6 +49,10 @@ class VideoProcessing {
      *.addOption('-benchmark')
      */
 
+    /*
+     * For output options I prefer string format 'cause it's look like ffmpeg command in command line
+     * so you can just copy this to terminal and check how it works
+     */
     return new Promise((res, rej) => this.ffmpegInstance
       .output(`${outputVideoPath.dirName}/${outputVideoPath.name}`)
       .outputOptions([
@@ -101,6 +105,7 @@ class VideoProcessing {
 
   static generatePlaylist(files, output) {
     return new Promise((res, rej) => {
+      // Using a shell script gives us more speed because we get rid of the extra layer of abstraction
       const generateM3u8 = spawn('bash', [
         'src/generate-m3u8.sh',
         files,
@@ -120,6 +125,7 @@ class VideoProcessing {
 
   static generateManifest(files, output) {
     return new Promise((res, rej) => {
+      // Using a shell script gives us more speed because we get rid of the extra layer of abstraction
       const generateM3u8 = spawn('bash', [
         'src/generate-mpd.sh',
         files,
