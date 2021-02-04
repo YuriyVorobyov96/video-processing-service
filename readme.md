@@ -5,13 +5,13 @@ This demo is an example of video processing to create mp4, m3u8, mpd files for s
 --video-processing
 ‌‌‍‍   |\_\_uploads/
 ‌‌‍‍   |\_\_video/
+‌‌‍‍   |\_\_server.js
+‌‌‍‍   |\_\_package.json
 ‌‌‍‍   |\_\_src/
       |\_\_generate-m3u8.sh
       |\_\_generate-mpd.sh
       |\_\_video-processing.js
       |\_\_worker.js
-‌‌‍‍   |\_\_server.js
-‌‌‍‍   |\_\_package.json
 
 * uploads/ - dir for uploaded videos;
 * video/ - dir for files after video processing;
